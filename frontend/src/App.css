@@ -1,0 +1,382 @@
+/* Main App Styles */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #8e44ad;
+  --accent-color: #f39c12;
+  --light-bg: #f5f7fa;
+  --dark-bg: #1a202c;
+  --light-text: #ecf0f1;
+  --dark-text: #2c3e50;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --border-radius: 8px;
+  --iftar-gradient: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  transition: var(--transition);
+}
+
+body.light {
+  background-color: var(--light-bg);
+  color: var(--dark-text);
+}
+
+body.dark {
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+}
+
+.app-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 15px;
+  border-bottom: 2px solid;
+}
+
+.light header {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark header {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+header h1 {
+  font-size: 2.2rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dark header h1 {
+  background: linear-gradient(135deg, #9b59b6, #3498db);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.light button {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+}
+
+.dark button {
+  background-color: #9b59b6;
+  color: var(--light-text);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow);
+}
+
+.form-toggle-btn {
+  background-color: var(--secondary-color);
+}
+
+.theme-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.refresh-btn {
+  background-color: var(--accent-color);
+}
+
+/* Form Section Styles */
+.form-section {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  margin-bottom: 30px;
+  box-shadow: var(--box-shadow);
+  animation: fadeIn 0.5s ease;
+}
+
+.light .form-section {
+  background-color: white;
+}
+
+.dark .form-section {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* City Selector Styles */
+.city-selector {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.city-selector label {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.city-dropdown {
+  padding: 10px 15px;
+  border-radius: var(--border-radius);
+  border: 1px solid;
+  flex-grow: 1;
+  max-width: 300px;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.light .city-dropdown {
+  border-color: rgba(0, 0, 0, 0.2);
+  color: var(--dark-text);
+}
+
+.dark .city-dropdown {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--light-text);
+}
+
+/* Content Section */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  flex-grow: 1;
+}
+
+.location-info {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.location-info h2 {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+}
+
+.date {
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* Iftar Countdown Styles */
+.iftar-countdown {
+  background: var(--iftar-gradient);
+  padding: 25px;
+  border-radius: var(--border-radius);
+  color: white;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+}
+
+.iftar-countdown h2 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.countdown-display {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
+}
+
+/* Prayer Times Styles */
+.prayer-times-container {
+  padding: 25px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.light .prayer-times-container {
+  background-color: white;
+}
+
+.dark .prayer-times-container {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.prayer-times-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.prayer-times {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.prayer-time-card {
+  padding: 15px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  transition: var(--transition);
+  border: 1px solid;
+}
+
+.light .prayer-time-card {
+  background-color: rgba(236, 240, 241, 0.7);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark .prayer-time-card {
+  background-color: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.prayer-time-card.active {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(142, 68, 173, 0.3);
+}
+
+.light .prayer-time-card.active {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.dark .prayer-time-card.active {
+  background-color: #9b59b6;
+  color: white;
+}
+
+.prayer-name {
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.prayer-time {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: auto;
+  font-style: italic;
+}
+
+footer p {
+  font-size: 1.1rem;
+}
+
+/* Loading & Error Styles */
+.loading-container, .error-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.loader {
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 5px solid var(--secondary-color);
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .city-selector {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .city-dropdown {
+    width: 100%;
+    max-width: none;
+  }
+  
+  .prayer-times {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .countdown-display {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .prayer-times {
+    grid-template-columns: 1fr;
+  }
+  
+  button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .header-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  header h1 {
+    font-size: 1.8rem;
+  }
+}

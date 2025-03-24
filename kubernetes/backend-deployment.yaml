@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: express-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: express
+  template:
+    metadata:
+      labels:
+        app: express
+    spec:
+      containers:
+      - name: express
+        image: saadafifi/my-backend:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: DB_HOST
+          value: "mysql-0.mysql-service.default.svc.cluster.local"
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_NAME
+          value: "db_ramadane"
+        - name: DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: MYSQL_USER
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: MYSQL_PASSWORD
