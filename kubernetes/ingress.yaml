@@ -3,16 +3,16 @@ kind: Ingress
 metadata:
   name: express-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /  # Optional: Rewrites paths if needed
+    nginx.ingress.kubernetes.io/rewrite-target: / 
 spec:
   rules:
-  - host: saad.local  # The domain you’ll use (configurable)
+  - host: saad.local
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: express-service  # Your existing service name
+            name: express-service
             port:
-              number: 5000       # The service port
+              number: 5000
